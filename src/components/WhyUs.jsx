@@ -1,6 +1,15 @@
-import { Users, Shield, Globe } from 'lucide-react';
+import { Users, Handshake, Network, Star, Heart, Globe } from 'lucide-react';
 
 export default function WhyUs() {
+  const reasons = [
+    { icon: Users, text: 'Connects families and communities' },
+    { icon: Heart, text: 'Supports newcomers and youth' },
+    { icon: Network, text: 'Creates networking opportunities' },
+    { icon: Star, text: 'Celebrates festivals and traditions' },
+    { icon: Handshake, text: 'Encourages volunteerism and leadership' },
+    { icon: Globe, text: 'Builds stronger inter-state relationships' },
+  ];
+
   return (
     <section id="why-us" className="section-padding relative" style={{ background: 'var(--bg-dark)' }}>
       <div className="container">
@@ -13,34 +22,16 @@ export default function WhyUs() {
         </div>
 
         <div className="why-grid">
-          <div className="why-card glass-card">
-            <Users className="why-icon" size={32} />
-            <p>Connects families and communities</p>
-          </div>
-          <div className="why-card glass-card">
-            <Globe className="why-icon" size={32} />
-            <p>Supports newcomers and youth</p>
-          </div>
-          <div className="why-card glass-card">
-            <Shield className="why-icon" size={32} />
-            <p>Creates networking opportunities</p>
-          </div>
-          <div className="why-card glass-card">
-            <Users className="why-icon" size={32} />
-            <p>Celebrates festivals and traditions</p>
-          </div>
-          <div className="why-card glass-card">
-            <Globe className="why-icon" size={32} />
-            <p>Encourages volunteerism and leadership</p>
-          </div>
-          <div className="why-card glass-card">
-            <Shield className="why-icon" size={32} />
-            <p>Builds stronger inter-state relationships</p>
-          </div>
+          {reasons.map(({ icon: Icon, text }, idx) => (
+            <div key={idx} className="why-card glass-card">
+              <Icon className="why-icon" size={32} />
+              <p>{text}</p>
+            </div>
+          ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="serif-title text-xl text-gold-gradient" style={{ marginTop: '3rem', fontSize: '1.5rem', lineHeight: '1.5' }}>
+        <div className="why-closing">
+          <p className="serif-title text-gold-gradient">
             Lohana USA is formed to bring all Lohanas together under one umbrella of unity and progress.
           </p>
         </div>
@@ -67,6 +58,16 @@ export default function WhyUs() {
         .why-icon {
           color: var(--gold);
         }
+        .why-closing {
+          text-align: center;
+          margin-top: 4rem;
+          font-size: 1.5rem;
+          line-height: 1.6;
+        }
+        .why-closing p {
+          font-family: var(--font-serif);
+          font-size: 1.5rem;
+        }
         .text-center {
           text-align: center;
         }
@@ -75,6 +76,7 @@ export default function WhyUs() {
         }
         @media (max-width: 768px) {
           .why-grid { grid-template-columns: 1fr; }
+          .why-closing { font-size: 1.2rem; }
         }
       `}</style>
     </section>

@@ -49,6 +49,14 @@ export default function Footer() {
           padding: 6rem 0 3rem 0;
         }
 
+        @media (max-width: 992px) {
+          .footer-container { padding: 4rem 0 2.5rem 0; }
+        }
+
+        @media (max-width: 768px) {
+          .footer-container { padding: 3rem 0 2rem 0; }
+        }
+
         .footer-top-grid {
           display: grid;
           grid-template-columns: 1.5fr 1fr;

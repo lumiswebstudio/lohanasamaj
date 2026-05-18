@@ -63,11 +63,12 @@ export default function Programs() {
           align-items: center;
           gap: 1rem;
           padding: 1.5rem !important;
-          transition: transform 0.3s ease, border-color 0.3s ease;
         }
+        /* override global glass-card hover to prevent double transform */
         .program-item:hover {
-          transform: translateY(-3px);
+          transform: none;
           border-color: var(--gold);
+          box-shadow: 0 0 0 1px var(--gold), 0 8px 24px rgba(212, 175, 55, 0.12);
         }
         .prog-icon {
           color: var(--gold);

@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="glow-orb glow-gold"></div>
       <div className="glow-orb glow-blue"></div>
 
-      <div className="container hero-content z-10">
+      <div className="container hero-content" style={{ position: 'relative', zIndex: 10 }}>
         <div className="hero-badge-wrapper">
           <div className="hero-badge">
             <Users size={14} className="badge-icon" />
@@ -67,7 +67,7 @@ export default function Hero() {
           position: absolute;
           border-radius: 50%;
           filter: blur(100px);
-          z-index: 1;
+          z-index: 0;
           pointer-events: none;
         }
 

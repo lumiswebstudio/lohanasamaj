@@ -1,4 +1,4 @@
-import { Phone, UserCircle, Map } from 'lucide-react';
+import { Phone, UserCircle, Building2, MapPin } from 'lucide-react';
 
 export default function Leadership() {
   return (
@@ -17,7 +17,7 @@ export default function Leadership() {
             <h3 className="serif-title text-gold-gradient text-2xl mb-6">Organizational Structure</h3>
             
             <div className="structure-group">
-              <h4 className="structure-title"><Map size={18} /> National Leadership</h4>
+              <h4 className="structure-title"><Building2 size={18} /> National Leadership</h4>
               <ul>
                 <li>National President</li>
                 <li>National Vice President</li>
@@ -28,7 +28,7 @@ export default function Leadership() {
             </div>
 
             <div className="structure-group mt-6">
-              <h4 className="structure-title"><Map size={18} /> Zonal Leadership</h4>
+              <h4 className="structure-title"><MapPin size={18} /> Zonal Leadership</h4>
               <ul>
                 <li>East Coast Zone</li>
                 <li>West Coast Zone</li>
