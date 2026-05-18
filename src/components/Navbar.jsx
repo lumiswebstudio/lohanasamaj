@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Landmark, Users } from 'lucide-react';
+import { Menu, X, ClipboardList } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,19 +18,19 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Heritage', href: '#heritage' },
-    { name: 'Events', href: '#events' },
-    { name: 'Initiatives', href: '#initiatives' },
-    { name: 'Connect', href: '#contact' }
+    { name: 'About', href: '#about' },
+    { name: 'Why Us', href: '#why-us' },
+    { name: 'Programs', href: '#programs' },
+    { name: 'Leadership', href: '#leadership' }
   ];
 
   return (
     <nav className={`navbar-container ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-content">
         <a href="#" className="nav-logo">
-          <Landmark className="logo-icon" size={24} />
+          <img src="/logo.jpg" alt="Lohana USA Logo" className="navbar-logo-img" onError={(e) => e.target.style.display = 'none'} />
           <span className="logo-text serif-title">
-            Lohana <span className="text-gold-gradient">Samaj</span>
+            Lohana <span className="text-gold-gradient">USA</span>
           </span>
         </a>
 
@@ -45,9 +45,9 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <a href="#contact" className="btn btn-secondary nav-btn">
-            <Users size={16} />
-            <span>Join Samaj</span>
+          <a href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-btn">
+            <ClipboardList size={16} />
+            <span>Census 2026</span>
           </a>
         </div>
 
@@ -77,12 +77,12 @@ export default function Navbar() {
           ))}
           <li>
             <a 
-              href="#contact" 
+              href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer"
               className="btn btn-primary mobile-btn"
               onClick={() => setIsOpen(false)}
             >
-              <Users size={18} />
-              <span>Join Samaj</span>
+              <ClipboardList size={18} />
+              <span>Take Census 2026</span>
             </a>
           </li>
         </ul>
@@ -129,9 +129,10 @@ export default function Navbar() {
           transform: scale(1.02);
         }
 
-        .logo-icon {
-          color: var(--gold);
-          filter: drop-shadow(0 0 8px var(--gold-glow));
+        .navbar-logo-img {
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
         }
 
         .logo-text {

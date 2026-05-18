@@ -1,63 +1,50 @@
-import { ArrowRight, Compass, ShieldCheck } from 'lucide-react';
+import { ClipboardList, ArrowRight, Users } from 'lucide-react';
 
 export default function Hero() {
-  const stats = [
-    { value: '100+', label: 'Years of Heritage' },
-    { value: '50K+', label: 'Global Members' },
-    { value: '40+', label: 'Affiliated Chapters' },
-    { value: '100%', label: 'Community Philanthropy' }
-  ];
-
   return (
     <section className="hero-section overflow-hidden relative">
-      {/* Background Orbs */}
       <div className="glow-orb glow-gold"></div>
       <div className="glow-orb glow-blue"></div>
 
       <div className="container hero-content z-10">
-        {/* Modern Badge */}
         <div className="hero-badge-wrapper">
           <div className="hero-badge">
-            <ShieldCheck size={14} className="badge-icon" />
-            <span>Official Global Lohana Samaj Portal</span>
+            <Users size={14} className="badge-icon" />
+            <span>Official Lohana USA Initiative</span>
           </div>
         </div>
 
-        {/* Headline */}
         <h1 className="hero-title">
-          <span className="serif-title block">Preserving Legacy</span>
-          <span className="text-gold-gradient serif-title block">Pioneering the Future</span>
+          <span className="serif-title block">Lohana USA</span>
+          <span className="text-gold-gradient serif-title block">Census 2026</span>
         </h1>
 
-        {/* Subtitle */}
+        <div className="hero-motto">
+          <span className="motto-text">"Together We Grow"</span>
+          <span className="motto-divider">&bull;</span>
+          <span className="motto-text">"United Lohanas Across America"</span>
+        </div>
+
         <p className="hero-subtitle">
-          Welcome to the digital home of the global Lohana community. Driven by Raghuvanshi values, a rich entrepreneurial spirit, and an unwavering commitment to charity and global unity.
+          The Lohana USA Census is an important initiative to connect and identify Lohana families throughout America. This project will help build stronger community connections, improve communication nationwide, and support future events and programs.
         </p>
 
-        {/* Buttons */}
         <div className="hero-actions">
-          <a href="#heritage" className="btn btn-primary">
-            <span>Explore Heritage</span>
-            <Compass size={18} />
+          <a href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            <span>Fill Out Census Form</span>
+            <ClipboardList size={18} />
           </a>
-          <a href="#contact" className="btn btn-secondary">
-            <span>Join Network</span>
+          <a href="#about" className="btn btn-secondary">
+            <span>Learn More</span>
             <ArrowRight size={18} />
           </a>
         </div>
 
-        {/* Stats Grid */}
-        <div className="stats-grid glass-card">
-          {stats.map((stat, idx) => (
-            <div key={idx} className="stat-card">
-              <span className="stat-value text-gold-gradient serif-title">{stat.value}</span>
-              <span className="stat-label">{stat.label}</span>
-            </div>
-          ))}
+        <div className="hero-image-wrapper glass-card">
+          <img src="/census.jpg" alt="Lohana USA Census 2026 Banner" className="hero-banner-img" onError={(e) => e.target.style.display = 'none'} />
         </div>
       </div>
 
-      {/* Embedded Styles */}
       <style>{`
         .hero-section {
           min-height: 100vh;
@@ -140,9 +127,25 @@ export default function Hero() {
           display: block;
         }
 
+        .hero-motto {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1rem;
+          font-family: var(--font-serif);
+          font-size: 1.25rem;
+          color: var(--gold-light);
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+
+        .motto-divider {
+          color: var(--text-muted);
+        }
+
         .hero-subtitle {
           max-width: 700px;
-          font-size: 1.2rem;
+          font-size: 1.15rem;
           color: var(--text-secondary);
           line-height: 1.6;
           margin-bottom: 1rem;
@@ -152,37 +155,21 @@ export default function Hero() {
         .hero-actions {
           display: flex;
           gap: 1.25rem;
-          margin-bottom: 4rem;
+          margin-bottom: 2rem;
         }
 
-        /* Stats Grid */
-        .stats-grid {
-          width: 100%;
+        .hero-image-wrapper {
+          margin-top: 2rem;
+          padding: 1rem !important;
           max-width: 900px;
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          padding: 2rem !important;
-          background: rgba(15, 23, 42, 0.4);
-          gap: 1.5rem;
+          width: 100%;
         }
 
-        .stat-card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.25rem;
-        }
-
-        .stat-value {
-          font-size: 2.5rem;
-          font-weight: 700;
-        }
-
-        .stat-label {
-          font-size: 0.85rem;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 1px;
+        .hero-banner-img {
+          width: 100%;
+          height: auto;
+          border-radius: 12px;
+          display: block;
         }
 
         @media (max-width: 1024px) {
@@ -204,12 +191,13 @@ export default function Hero() {
             max-width: 320px;
             gap: 1rem;
           }
-          .stats-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+          .hero-motto {
+            flex-direction: column;
+            gap: 0.25rem;
+            font-size: 1.1rem;
           }
-          .stat-value {
-            font-size: 2rem;
+          .motto-divider {
+            display: none;
           }
         }
       `}</style>

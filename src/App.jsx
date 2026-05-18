@@ -1,9 +1,9 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Heritage from './components/Heritage'
-import Initiatives from './components/Initiatives'
-import Events from './components/Events'
-import Contact from './components/Contact'
+import About from './components/About'
+import WhyUs from './components/WhyUs'
+import Programs from './components/Programs'
+import Leadership from './components/Leadership'
 import Footer from './components/Footer'
 import './App.css'
 
@@ -13,10 +13,10 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Heritage />
-        <Initiatives />
-        <Events />
-        <Contact />
+        <About />
+        <WhyUs />
+        <Programs />
+        <Leadership />
       </main>
       <Footer />
     </div>
