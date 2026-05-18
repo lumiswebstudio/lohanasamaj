@@ -40,7 +40,7 @@ export default function Leadership() {
           </div>
 
           <div className="glass-card leadership-card">
-            <h3 className="serif-title text-gold-gradient text-2xl mb-6">National Leadership Team</h3>
+            <h3 className="text-gold-gradient text-2xl mb-6" style={{ fontFamily: 'var(--font-sans)', fontWeight: 700 }}>National Leadership Team</h3>
             
             <div className="leader-profile">
               <UserCircle size={48} className="leader-icon" />
@@ -116,14 +116,18 @@ export default function Leadership() {
           color: var(--gold);
         }
         .leader-name {
-          font-size: 1.25rem;
+          font-size: 1.15rem;
           color: var(--text-primary);
-          font-family: var(--font-serif);
+          font-family: var(--font-sans);
+          font-weight: 600;
         }
         .leader-role {
           display: block;
           color: var(--gold-light);
-          font-size: 0.9rem;
+          font-size: 0.85rem;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
           margin-bottom: 0.5rem;
         }
         .leader-contact {

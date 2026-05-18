@@ -132,11 +132,11 @@ export default function Hero() {
           align-items: center;
           gap: 1rem;
           margin-bottom: 1rem;
-          font-family: var(--font-serif);
-          font-size: 1.25rem;
+          font-family: var(--font-sans);
+          font-size: 1.1rem;
           color: var(--gold-light);
-          font-weight: 600;
-          letter-spacing: 1px;
+          font-weight: 500;
+          letter-spacing: 0.5px;
         }
 
         .motto-divider {
