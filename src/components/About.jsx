@@ -45,8 +45,9 @@ export default function About() {
               <div className="about-content-grid">
                 <div className="pane-info">
                   <h3 className="pane-title serif-title">Rooted in Heritage</h3>
-                  <p className="pane-text text-gold-gradient" style={{ fontWeight: 600, letterSpacing: '0.5px' }}>
-                    SitaRam &bull; Jai Jalaram &bull; RamSita
+                  <p className="pane-text text-gold-gradient" style={{ fontWeight: 600, letterSpacing: '0.5px', fontSize: '1.1rem', lineHeight: '1.5' }}>
+                    Jay Jalaram<br/>
+                    SitaRam SitaRam RamSita
                   </p>
                   <p className="pane-text" style={{ marginTop: '1rem' }}>
                     Lohana USA is proudly rooted in our rich Raghuvanshi heritage, culture, traditions, and values. Guided by the teachings and spirit of Sant Shri Jalaram Bapa, we aim to create a strong, united, and connected community for present and future generations.
@@ -54,8 +55,9 @@ export default function About() {
                   <p className="pane-text" style={{ marginTop: '1rem' }}>
                     We seek to build a nationwide network focused on unity, culture, service, youth empowerment, and community growth. Lohana USA strives to connect this vibrant global heritage with the growing Lohana population across America while preserving the timeless values of SitaRam for generations to come.
                   </p>
-                  <p className="pane-text text-gold-gradient" style={{ marginTop: '1rem', fontWeight: 600, letterSpacing: '0.5px' }}>
-                    SitaRam SitaRam &bull; RamSita &bull; Jai Jalaram
+                  <p className="pane-text text-gold-gradient" style={{ marginTop: '1rem', fontWeight: 600, letterSpacing: '0.5px', fontSize: '1.1rem', lineHeight: '1.5' }}>
+                    Jay Jalaram<br/>
+                    SitaRam SitaRam RamSita
                   </p>
                 </div>
                 <div className="about-image-wrapper">

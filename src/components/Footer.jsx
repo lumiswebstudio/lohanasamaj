@@ -1,4 +1,4 @@
-import { Landmark, ArrowRight } from 'lucide-react';
+import { Landmark, ArrowRight, Mail } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,6 +18,9 @@ export default function Footer() {
             <p className="footer-brand-desc">
               Uniting, empowering, and uplifting the Lohana community across the United States. Together We Grow.
             </p>
+            <a href="mailto:lohanausaorg@gmail.com" className="footer-contact-link">
+              <Mail size={18} /> lohanausaorg@gmail.com
+            </a>
           </div>
 
           <div className="footer-newsletter">
@@ -98,6 +101,23 @@ export default function Footer() {
           max-width: 540px;
         }
 
+        .footer-contact-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--gold-light);
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 1rem;
+          margin-top: 0.5rem;
+          transition: all 0.3s ease;
+        }
+
+        .footer-contact-link:hover {
+          color: var(--gold);
+          transform: translateX(4px);
+        }
+
         /* Newsletter segment */
         .footer-newsletter {
           display: flex;
@@ -140,20 +160,30 @@ export default function Footer() {
         }
 
         .lumis-credit {
-          font-size: 0.9rem;
-          color: var(--text-muted);
+          font-size: 0.95rem;
+          color: var(--text-secondary);
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
         }
 
         .lumis-credit a {
-          color: var(--gold-light);
+          color: var(--gold);
           text-decoration: none;
-          font-weight: 500;
-          transition: color 0.3s ease;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          background: rgba(212, 175, 55, 0.1);
+          padding: 0.35rem 0.85rem;
+          border-radius: 99px;
+          border: 1px solid rgba(212, 175, 55, 0.25);
+          transition: all 0.3s ease;
         }
 
         .lumis-credit a:hover {
-          color: var(--gold);
-          text-decoration: underline;
+          background: rgba(212, 175, 55, 0.2);
+          transform: translateY(-2px);
+          border-color: var(--gold);
+          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
         }
 
         @media (max-width: 992px) {
