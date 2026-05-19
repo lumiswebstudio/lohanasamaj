@@ -52,7 +52,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Nav Toggle */}
-        <button 
+        <button
           className="mobile-toggle"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle navigation menu"
@@ -66,8 +66,8 @@ export default function Navbar() {
         <ul className="mobile-menu">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <a 
-                href={link.href} 
+              <a
+                href={link.href}
                 className="mobile-link"
                 onClick={() => setIsOpen(false)}
               >
@@ -76,7 +76,7 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a 
+            <a
               href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer"
               className="btn btn-primary mobile-btn"
               onClick={() => setIsOpen(false)}
@@ -130,7 +130,7 @@ export default function Navbar() {
         }
 
         .navbar-logo-img {
-          height: 40px;
+          height: 60px;
           border-radius: 50%;
           object-fit: cover;
         }

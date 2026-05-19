@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-top-grid">
           <div className="footer-brand-info">
             <a href="#" className="footer-logo">
-              <img src="/logo.jpg" alt="Lohana USA Logo" className="navbar-logo-img" style={{ height: '40px', borderRadius: '50%' }} onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }} />
+              <img src="/logo.jpg" alt="Lohana USA Logo" className="navbar-logo-img" style={{ height: '60px', borderRadius: '50%' }} onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
               <Landmark className="logo-icon" size={24} style={{ display: 'none' }} />
               <span className="logo-text serif-title">
                 Lohana <span className="text-gold-gradient">USA</span>
@@ -35,7 +35,7 @@ export default function Footer() {
           <div className="copyright-info">
             <span>© {currentYear} Lohana USA. All Rights Reserved.</span>
           </div>
-          
+
           <div className="lumis-credit">
             Created by <a href="https://lumiswebstudio.com" target="_blank" rel="noopener noreferrer">Lumiswebstudio</a>
           </div>
