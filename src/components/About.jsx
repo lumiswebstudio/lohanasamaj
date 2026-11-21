@@ -30,8 +30,10 @@ export default function About() {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+                  aria-pressed={activeTab === tab.id}
+                  aria-label={tab.label}
                 >
-                  <Icon size={18} />
+                  <Icon size={18} aria-hidden="true" />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -60,7 +62,7 @@ export default function About() {
                 </div>
                 <div className="about-image-wrapper">
                   <div className="image-glow"></div>
-                  <img src="/jalaram-bapa.jpg" alt="Jalaram Bapa" className="jalaram-bapa-img" onError={(e) => e.target.style.display = 'none'} />
+                  <img src="/jalaram-bapa.jpg" alt="Sant Shri Jalaram Bapa" className="jalaram-bapa-img" loading="lazy" decoding="async" onError={(e) => e.target.style.display = 'none'} />
                 </div>
               </div>
             </div>

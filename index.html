@@ -24,14 +24,20 @@
     <meta name="twitter:description" content="Join the Lohana USA Census 2026. Together We Grow Stronger." />
     <meta name="twitter:image" content="/census.jpg" />
 
-    <!-- Security: prevent clickjacking via iframe embedding -->
+    <!-- Security headers -->
     <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <!-- Permissions Policy: restrict sensitive browser APIs not used by this site -->
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
 
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload hero image for LCP -->
+    <link rel="preload" as="image" href="/census.jpg" />
+    <!-- Preload logo for LCP -->
+    <link rel="preload" as="image" href="/logo.jpg" />
   </head>
   <body>
     <div id="root"></div>

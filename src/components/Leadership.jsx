@@ -47,7 +47,7 @@ export default function Leadership() {
               <div className="leader-info">
                 <h4 className="leader-name">Surubhai Manek</h4>
                 <span className="leader-role">President</span>
-                <a href="tel:7142999555" className="leader-contact"><Phone size={14} /> (714) 299-9555</a>
+                <a href="tel:+17142999555" className="leader-contact"><Phone size={14} aria-hidden="true" /> (714) 299-9555</a>
               </div>
             </div>
 
@@ -56,7 +56,7 @@ export default function Leadership() {
               <div className="leader-info">
                 <h4 className="leader-name">Mayur Thakkar</h4>
                 <span className="leader-role">Vice President</span>
-                <a href="tel:8477540675" className="leader-contact"><Phone size={14} /> (847) 754-0675</a>
+                <a href="tel:+18477540675" className="leader-contact"><Phone size={14} aria-hidden="true" /> (847) 754-0675</a>
               </div>
             </div>
           </div>

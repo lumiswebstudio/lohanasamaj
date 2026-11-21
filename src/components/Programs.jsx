@@ -28,9 +28,9 @@ export default function Programs() {
         </div>
 
         <div className="programs-grid">
-          {programs.map((prog, idx) => (
-            <div key={idx} className="program-item glass-card">
-              <CheckCircle2 className="prog-icon" size={20} />
+          {programs.map((prog) => (
+            <div key={prog} className="program-item glass-card">
+              <CheckCircle2 className="prog-icon" size={20} aria-hidden="true" />
               <span className="prog-text">{prog}</span>
             </div>
           ))}

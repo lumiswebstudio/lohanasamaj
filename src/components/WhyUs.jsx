@@ -22,9 +22,9 @@ export default function WhyUs() {
         </div>
 
         <div className="why-grid">
-          {reasons.map(({ icon: Icon, text }, idx) => (
-            <div key={idx} className="why-card glass-card">
-              <Icon className="why-icon" size={32} />
+          {reasons.map(({ icon: Icon, text }) => (
+            <div key={text} className="why-card glass-card">
+              <Icon className="why-icon" size={32} aria-hidden="true" />
               <p>{text}</p>
             </div>
           ))}

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
+/* Smooth scroll globally */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Color System */
   --bg-dark: #070a13;
@@ -148,13 +153,13 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border-glass);
   border-radius: 20px;
   padding: 2.5rem;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-glass-hover);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px var(--gold-glow);
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.32);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35), 0 0 30px rgba(212, 175, 55, 0.08);
 }
 
 /* Custom Scrollbar */
@@ -197,11 +202,54 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Utilities */
 .section-padding {
-  padding: 8rem 0;
+  padding: 7rem 0;
+}
+
+@media (max-width: 1024px) {
+  .section-padding {
+    padding: 5.5rem 0;
+  }
 }
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 5rem 0;
+    padding: 4.5rem 0;
   }
+}
+
+/* Fade-up entrance animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Respect user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Keyboard focus ring — visible only for keyboard nav, not mouse clicks */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
 }

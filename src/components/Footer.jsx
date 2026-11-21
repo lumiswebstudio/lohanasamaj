@@ -1,4 +1,6 @@
-import { Landmark, ArrowRight, Mail } from 'lucide-react';
+import { Landmark, ArrowRight, Mail, Heart } from 'lucide-react';
+
+const ZEFFY_URL = 'https://www.zeffy.com/en-US/donation-form/lohana-usa-formation-support';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,6 +31,28 @@ export default function Footer() {
             <a href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: 'fit-content', marginTop: '0.5rem' }}>
               Fill Out Form <ArrowRight size={16} />
             </a>
+          </div>
+
+          <div className="footer-donate-col">
+            <div className="footer-donate-card">
+              <div className="footer-donate-icon-wrap">
+                <Heart size={28} className="footer-donate-icon" />
+              </div>
+              <h4 className="footer-donate-title serif-title">Support Lohana USA</h4>
+              <p className="footer-donate-desc">
+                Your contribution helps us unite families, preserve heritage, and empower our community for generations to come.
+              </p>
+              <a
+                href={ZEFFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn footer-donate-btn"
+              >
+                <Heart size={16} />
+                <span>Donate Now</span>
+              </a>
+              <p className="footer-donate-note">Powered by Zeffy · 100% free platform</p>
+            </div>
           </div>
         </div>
 
@@ -62,8 +86,8 @@ export default function Footer() {
 
         .footer-top-grid {
           display: grid;
-          grid-template-columns: 1.5fr 1fr;
-          gap: 4rem;
+          grid-template-columns: 1.4fr 1fr 1.1fr;
+          gap: 3rem;
           margin-bottom: 4rem;
           align-items: flex-start;
           text-align: left;
@@ -184,6 +208,77 @@ export default function Footer() {
           transform: translateY(-2px);
           border-color: var(--gold);
           box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Donate column */
+        .footer-donate-col {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .footer-donate-card {
+          background: linear-gradient(135deg, rgba(212, 175, 55, 0.07) 0%, rgba(10, 15, 30, 0.6) 100%);
+          border: 1px solid rgba(212, 175, 55, 0.25);
+          border-radius: 16px;
+          padding: 1.75rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.9rem;
+        }
+
+        .footer-donate-icon-wrap {
+          width: 52px;
+          height: 52px;
+          background: rgba(212, 175, 55, 0.1);
+          border: 1px solid rgba(212, 175, 55, 0.25);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .footer-donate-icon {
+          color: var(--gold);
+        }
+
+        .footer-donate-title {
+          font-size: 1.15rem;
+          color: var(--text-primary);
+          line-height: 1.3;
+        }
+
+        .footer-donate-desc {
+          font-size: 0.875rem;
+          color: var(--text-muted);
+          line-height: 1.55;
+        }
+
+        .footer-donate-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
+          color: #070a13;
+          font-weight: 700;
+          font-size: 0.9rem;
+          padding: 0.65rem 1.4rem;
+          border-radius: 9999px;
+          text-decoration: none;
+          width: fit-content;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+        }
+
+        .footer-donate-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+          background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+        }
+
+        .footer-donate-note {
+          font-size: 0.75rem;
+          color: var(--text-muted);
+          letter-spacing: 0.3px;
         }
 
         @media (max-width: 992px) {

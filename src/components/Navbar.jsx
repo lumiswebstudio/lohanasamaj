@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ClipboardList } from 'lucide-react';
+import { Menu, X, ClipboardList, Heart } from 'lucide-react';
+
+const ZEFFY_URL = 'https://www.zeffy.com/en-US/donation-form/lohana-usa-formation-support';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
+    // Passive listener: does not block scroll paint
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -49,6 +46,10 @@ export default function Navbar() {
             <ClipboardList size={16} />
             <span>Census 2026</span>
           </a>
+          <a href={ZEFFY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-donate nav-btn">
+            <Heart size={16} />
+            <span>Donate</span>
+          </a>
         </div>
 
         {/* Mobile Nav Toggle */}
@@ -61,8 +62,13 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
-      <div className={`mobile-drawer ${isOpen ? 'active' : ''}`}>
+      {/* Mobile Drawer Menu — aria-hidden when closed so screen readers skip it */}
+      <div
+        className={`mobile-drawer ${isOpen ? 'active' : ''}`}
+        aria-hidden={!isOpen}
+        role="dialog"
+        aria-label="Navigation menu"
+      >
         <ul className="mobile-menu">
           {navLinks.map((link) => (
             <li key={link.name}>
@@ -83,6 +89,16 @@ export default function Navbar() {
             >
               <ClipboardList size={18} />
               <span>Take Census 2026</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={ZEFFY_URL} target="_blank" rel="noopener noreferrer"
+              className="btn btn-donate mobile-btn"
+              onClick={() => setIsOpen(false)}
+            >
+              <Heart size={18} />
+              <span>Donate to Lohana USA</span>
             </a>
           </li>
         </ul>
@@ -186,6 +202,21 @@ export default function Navbar() {
           font-size: 0.85rem;
         }
 
+        .btn-donate {
+          background: transparent;
+          color: var(--gold-light);
+          border: 1px solid rgba(212, 175, 55, 0.5);
+          backdrop-filter: blur(8px);
+        }
+
+        .btn-donate:hover {
+          background: rgba(212, 175, 55, 0.12);
+          border-color: var(--gold);
+          color: var(--gold);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
         .mobile-toggle {
           display: none;
           background: transparent;
@@ -193,6 +224,11 @@ export default function Navbar() {
           color: var(--text-primary);
           cursor: pointer;
           transition: all 0.3s ease;
+          /* Minimum 44×44px touch target (WCAG 2.5.5) */
+          min-width: 44px;
+          min-height: 44px;
+          align-items: center;
+          justify-content: center;
         }
 
         .mobile-toggle:hover {
