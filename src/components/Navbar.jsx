@@ -42,12 +42,12 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <a href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-btn">
-            <ClipboardList size={16} />
+          <a href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer" className="btn btn-outline nav-btn">
+            <ClipboardList size={16} aria-hidden="true" />
             <span>Census 2026</span>
           </a>
-          <a href={ZEFFY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-donate nav-btn">
-            <Heart size={16} />
+          <a href={ZEFFY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-btn">
+            <Heart size={16} aria-hidden="true" />
             <span>Donate</span>
           </a>
         </div>
@@ -84,20 +84,20 @@ export default function Navbar() {
           <li>
             <a
               href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer"
-              className="btn btn-primary mobile-btn"
+              className="btn btn-outline mobile-btn"
               onClick={() => setIsOpen(false)}
             >
-              <ClipboardList size={18} />
+              <ClipboardList size={18} aria-hidden="true" />
               <span>Take Census 2026</span>
             </a>
           </li>
           <li>
             <a
               href={ZEFFY_URL} target="_blank" rel="noopener noreferrer"
-              className="btn btn-donate mobile-btn"
+              className="btn btn-primary mobile-btn"
               onClick={() => setIsOpen(false)}
             >
-              <Heart size={18} />
+              <Heart size={18} aria-hidden="true" />
               <span>Donate to Lohana USA</span>
             </a>
           </li>
@@ -202,14 +202,14 @@ export default function Navbar() {
           font-size: 0.85rem;
         }
 
-        .btn-donate {
+        .btn-outline {
           background: transparent;
           color: var(--gold-light);
           border: 1px solid rgba(212, 175, 55, 0.5);
           backdrop-filter: blur(8px);
         }
 
-        .btn-donate:hover {
+        .btn-outline:hover {
           background: rgba(212, 175, 55, 0.12);
           border-color: var(--gold);
           color: var(--gold);

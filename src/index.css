@@ -145,6 +145,21 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--gold-light);
 }
 
+.btn-outline {
+  background: transparent;
+  color: var(--gold-light);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
 /* Glassmorphism Cards */
 .glass-card {
   background: var(--bg-card);
