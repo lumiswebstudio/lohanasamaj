@@ -1,4 +1,4 @@
-import { ClipboardList, ArrowRight, Users } from 'lucide-react';
+import { ClipboardList, ArrowRight, Users, Heart } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -31,7 +31,11 @@ export default function Hero() {
 
         {/* Two-item action row: primary CTA + elegant text link */}
         <div className="hero-actions">
-          <a href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer" className="btn btn-primary hero-cta-main">
+          <a href="https://www.zeffy.com/en-US/donation-form/lohana-usa-formation-support" target="_blank" rel="noopener noreferrer" className="btn btn-primary hero-cta-main hero-donate">
+            <Heart size={18} aria-hidden="true" />
+            <span>Donate Now</span>
+          </a>
+          <a href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer" className="btn btn-outline hero-cta-main hero-census">
             <span>Fill Out Census Form</span>
             <ClipboardList size={18} />
           </a>
@@ -65,6 +69,7 @@ export default function Hero() {
         }
 
         .hero-content {
+          min-width: 0;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -125,9 +130,9 @@ export default function Hero() {
 
         /* Headline */
         .hero-title {
-          font-size: 5rem;
-          line-height: 1.05;
-          letter-spacing: -2px;
+          font-size: clamp(2.35rem, 7vw, 5rem);
+          line-height: 1.08;
+          letter-spacing: -1.5px;
           margin-bottom: 0.25rem;
         }
 
@@ -168,11 +173,6 @@ export default function Hero() {
           padding: 0.9rem 2.25rem;
           font-size: 1rem;
           letter-spacing: 0.2px;
-          box-shadow: 0 6px 28px rgba(212, 175, 55, 0.35);
-        }
-
-        .hero-cta-main:hover {
-          box-shadow: 0 10px 40px rgba(212, 175, 55, 0.5);
         }
 
         /* Elegant text-only link for Learn More */
@@ -231,23 +231,33 @@ export default function Hero() {
           display: block;
         }
 
-        @media (max-width: 1024px) {
-          .hero-title { font-size: 3.75rem; }
+        @media (min-width: 769px) {
+          .hero-census { order: -1; }
         }
 
         @media (max-width: 768px) {
-          .hero-title { font-size: 2.75rem; letter-spacing: -1px; }
-          .hero-subtitle { font-size: 1rem; }
+          .hero-section {
+            padding: 6.5rem 0 3rem 0;
+            min-height: auto;
+          }
+          .hero-subtitle { font-size: 0.98rem; }
           .hero-actions {
             flex-direction: column;
             gap: 1.25rem;
+            width: 100%;
+            max-width: 280px;
           }
-          .hero-cta-main { width: 100%; max-width: 300px; }
+          .hero-cta-main { width: 100%; }
           .hero-motto {
             flex-direction: column;
-            gap: 0.2rem;
+            gap: 0.35rem;
+            font-size: 0.95rem;
           }
           .motto-divider { display: none; }
+          .hero-image-wrapper {
+            padding: 0.5rem !important;
+            margin-top: 1.5rem;
+          }
         }
       `}</style>
     </section>

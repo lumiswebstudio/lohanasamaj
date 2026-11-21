@@ -144,7 +144,9 @@ export default function Leadership() {
         }
 
         @media (max-width: 768px) {
-          .leadership-grid { grid-template-columns: 1fr; }
+          .leadership-grid { grid-template-columns: 1fr; gap: 2rem; }
+          .structure-card, .leadership-card { padding: 1.75rem 1.25rem !important; border-radius: 16px; }
+          .leader-profile { padding: 1.1rem; gap: 1rem; }
         }
       `}</style>
     </section>

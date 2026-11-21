@@ -39,6 +39,7 @@ export default function Programs() {
 
       <style>{`
         .initiatives-section {
+          overflow: clip;
           background: rgba(7, 10, 19, 0.95);
           border-top: 1px solid var(--border-glass);
           border-bottom: 1px solid var(--border-glass);

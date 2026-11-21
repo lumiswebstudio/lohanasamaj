@@ -236,6 +236,22 @@ export default function DonationBanner() {
             transform: translate(50%, -50%);
           }
         }
+
+        @media (max-width: 600px) {
+          .donation-card {
+            padding: 1.75rem 1.25rem;
+            border-radius: 18px;
+            gap: 1.5rem;
+          }
+          .donation-heading {
+            font-size: 1.35rem;
+          }
+          .donation-cta-btn {
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+          }
+        }
       `}</style>
     </section>
   );

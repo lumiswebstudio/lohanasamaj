@@ -28,7 +28,7 @@ export default function Footer() {
           <div className="footer-newsletter">
             <h4 className="newsletter-title serif-title">Census 2026</h4>
             <p className="newsletter-desc">Make sure your family is counted in the nationwide Lohana USA Census.</p>
-            <a href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: 'fit-content', marginTop: '0.5rem' }}>
+            <a href="https://forms.gle/JstzV6adcRdQg6DbA" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ width: 'fit-content', marginTop: '0.5rem' }}>
               Fill Out Form <ArrowRight size={16} />
             </a>
           </div>

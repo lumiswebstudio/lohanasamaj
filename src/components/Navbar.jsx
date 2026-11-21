@@ -14,6 +14,27 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll and handle Escape key when mobile drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = '';
+    }
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflowY = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
+
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Why Us', href: '#why-us' },
@@ -56,14 +77,25 @@ export default function Navbar() {
         <button
           className="mobile-toggle"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation menu"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
+      {/* Mobile Backdrop Overlay */}
+      <div
+        className={`mobile-backdrop ${isOpen ? 'active' : ''}`}
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      />
+
       {/* Mobile Drawer Menu — aria-hidden when closed so screen readers skip it */}
       <div
+        id="mobile-navigation"
+        inert={!isOpen}
         className={`mobile-drawer ${isOpen ? 'active' : ''}`}
         aria-hidden={!isOpen}
         role="dialog"
@@ -120,8 +152,6 @@ export default function Navbar() {
         .navbar-container.scrolled {
           padding: 0.85rem 0;
           background: rgba(7, 10, 19, 0.85);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
           border-bottom: 1px solid var(--border-glass);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
@@ -219,6 +249,8 @@ export default function Navbar() {
 
         .mobile-toggle {
           display: none;
+          position: relative;
+          z-index: 1000;
           background: transparent;
           border: none;
           color: var(--text-primary);
@@ -235,25 +267,55 @@ export default function Navbar() {
           color: var(--gold);
         }
 
+        .mobile-backdrop {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          height: 100dvh;
+          background: rgba(0, 0, 0, 0.65);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+          z-index: 998;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.35s ease;
+        }
+
+        .mobile-backdrop.active {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
         .mobile-drawer {
           position: fixed;
           top: 0;
-          right: -100%;
-          width: 80%;
-          max-width: 380px;
+          right: 0;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          width: 85%;
+          max-width: 360px;
           height: 100vh;
+          height: 100dvh;
           background: rgba(10, 15, 30, 0.98);
           backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
           border-left: 1px solid var(--border-glass);
           z-index: 999;
           display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          flex-direction: column;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+          padding: 5.5rem 1.75rem 2rem;
+          transition: opacity 0.3s ease, visibility 0.3s;
         }
 
         .mobile-drawer.active {
-          right: 0;
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
         }
 
         .mobile-menu {
@@ -261,14 +323,15 @@ export default function Navbar() {
           flex-direction: column;
           align-items: center;
           list-style: none;
-          gap: 2rem;
+          gap: 1.75rem;
           width: 100%;
-          padding: 2rem;
+          padding: 0;
+          margin: auto 0;
         }
 
         .mobile-link {
           color: var(--text-primary);
-          font-size: 1.35rem;
+          font-size: 1.25rem;
           text-decoration: none;
           font-weight: 500;
           transition: all 0.3s ease;
@@ -281,16 +344,32 @@ export default function Navbar() {
 
         .mobile-btn {
           width: 100%;
-          margin-top: 1rem;
+          margin-top: 0.5rem;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
           .desktop-nav {
             display: none;
           }
 
           .mobile-toggle {
-            display: block;
+            display: flex;
+          }
+
+          .navbar-container {
+            padding: 1rem 0;
+          }
+
+          .navbar-container.scrolled {
+            padding: 0.65rem 0;
+          }
+
+          .navbar-logo-img {
+            height: 48px;
+          }
+
+          .logo-text {
+            font-size: 1.3rem;
           }
         }
       `}</style>

@@ -1,8 +1,14 @@
 /* Component-specific helper classes or custom override overrides */
 .app-container {
+  width: 100%;
+  min-width: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.app-container > main {
+  min-width: 0;
 }
 
 .relative {

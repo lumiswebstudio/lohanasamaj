@@ -76,7 +76,8 @@ export default function WhyUs() {
         }
         @media (max-width: 768px) {
           .why-grid { grid-template-columns: 1fr; }
-          .why-closing { font-size: 1.2rem; }
+          .why-closing { font-size: 1.2rem; margin-top: 2.5rem; }
+          .why-closing p { font-size: 1.25rem; }
         }
       `}</style>
     </section>
